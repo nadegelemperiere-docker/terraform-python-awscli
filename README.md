@@ -8,8 +8,8 @@ This project releases a container containing the tools required to deploy and ch
 
 [![Status](https://badgen.net/github/checks/technogix-images/terraform-python-awscli)](https://github.com/technogix-images/terraform-python-awscli/actions/workflows/release.yml)
 [![Licence](https://img.shields.io/static/v1?label=license&message=MIT&color=informational)](./LICENSE)
-[![Commits](https://badgen.net/github/commits/technogix-images/terraform-python-awscli/master)](https://github.com/technogix-images/terraform-python-awscli)
-[![Last commit](https://badgen.net/github/last-commit/technogix-images/terraform-python-awscli/master)](https://github.com/technogix-images/terraform-python-awscli)
+[![Commits](https://badgen.net/github/commits/technogix-images/terraform-python-awscli/main)](https://github.com/technogix-images/terraform-python-awscli)
+[![Last commit](https://badgen.net/github/last-commit/technogix-images/terraform-python-awscli/main)](https://github.com/technogix-images/terraform-python-awscli)
 
 ### Built With
 
