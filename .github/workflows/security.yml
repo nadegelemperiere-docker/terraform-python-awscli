@@ -1,0 +1,59 @@
+# -------------------------------------------------------
+# TECHNOGIX
+# -------------------------------------------------------
+# Copyright (c) [2022] Technogix SARL
+# All rights reserved
+# -------------------------------------------------------
+# Security analysis pipeline for website
+# -------------------------------------------------------
+# Nadège LEMPERIERE, @01 march 2022
+# Latest revision: 01 march 2022
+# -------------------------------------------------------
+
+name: Container Security Regular Scan Pipeline
+
+on:
+  schedule:
+    - cron:  '0 0 1 * *'
+
+jobs:
+    analyze:
+        name: Analyze Container
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@master
+
+            - name: Build container
+              run: docker image build -t technogix/${{ github.event.repository.name }}:${{ github.sha }} .
+
+            - name: Check container
+              continue-on-error: true
+              uses: aquasecurity/trivy-action@master
+              with:
+                image-ref: 'technogix/${{ github.event.repository.name }}:${{ github.sha }}'
+                format: 'sarif'
+                output: trivy.sarif
+                exit-code: '0'
+                ignore-unfixed: true
+
+            - name: Run Snyk to check for vulnerabilities
+              continue-on-error: true
+              uses: snyk/actions/docker@master
+              env:
+                SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+              with:
+                image: 'technogix/${{ github.event.repository.name }}:${{ github.sha }}'
+                args: --sarif-file-output=snyk.sarif --file=Dockerfile
+
+            - name: Upload trivy result to GitHub Code Scanning
+              uses: github/codeql-action/upload-sarif@v1
+              if: always()
+              with:
+                sarif_file: trivy.sarif
+
+            - name: Upload snyk result to GitHub Code Scanning
+              uses: github/codeql-action/upload-sarif@v1
+              if: always()
+              with:
+                sarif_file: snyk.sarif
