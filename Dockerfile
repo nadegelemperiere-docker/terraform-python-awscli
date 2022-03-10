@@ -47,9 +47,5 @@ RUN apk --no-cache --update add libxml2-dev==2.9.12-r2 libxslt-dev==1.1.34-r1 li
     pip install --no-cache-dir pylint==2.12.2 && \
     rm -rf /var/lib/apt/lists/* && rm -rf /var/cache/apk/*
 
-# Create user
-RUN adduser -D --home /home/technogix technogix
-USER technogix
-
 # Launch test scripts
 CMD ["/bin/bash"]
