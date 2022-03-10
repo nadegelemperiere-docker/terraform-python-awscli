@@ -9,9 +9,6 @@ RUN apk --no-cache --update add curl==7.80.0-r0 binutils==2.37-r3 && \
     apk add --no-cache glibc.apk && apk add --no-cache glibc-bin.apk && apk add --no-cache glibc-i18n.apk && \
     apk --no-cache del curl && rm -rf /var/cache/apk/* && rm -rf /var/lib/apt/lists/*
 
-# Install pylint
-RUN pip install --no-cache-dir pylint==2.12.2
-
 # Install terraform
 RUN apk --no-cache --update add terraform==1.1.7-r0 --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community && \
     rm -rf /var/lib/apt/lists/* && rm -rf /var/cache/apk/*
@@ -42,10 +39,12 @@ RUN apk --no-cache --update add git==2.34.1-r0 git-lfs==3.0.2-r0 less==590-r0 op
 RUN apk add --no-cache --upgrade bash==5.1.16-r0 && \
     rm -rf /var/lib/apt/lists/* && rm -rf /var/cache/apk/*
 
-# Install keepass
+# Install python packages
 RUN apk --no-cache --update add libxml2-dev==2.9.12-r2 libxslt-dev==1.1.34-r1 libffi-dev==3.4.2-r1 build-base==0.5-r2 && \
     python3 -m pip install --no-cache-dir --upgrade pip==22.0.4 && \
     pip install --no-cache-dir pykeepass==4.0.1 && \
+    pip install --no-cache-dir pip-audit==2.0.0 && \
+    pip install --no-cache-dir pylint==2.12.2 && \
     rm -rf /var/lib/apt/lists/* && rm -rf /var/cache/apk/*
 
 # Create user
