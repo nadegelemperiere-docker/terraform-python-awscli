@@ -25,25 +25,23 @@ jobs:
               uses: actions/checkout@master
 
             - name: Build container
-              run: docker image build -t technogix/${{ github.event.repository.name }}:${{ github.sha }} .
+              run: docker image build -t ${{ github.repository }}:${{ github.sha }} .
 
             - name: Check container
-              continue-on-error: true
               uses: aquasecurity/trivy-action@master
               with:
-                image-ref: 'technogix/${{ github.event.repository.name }}:${{ github.sha }}'
+                image-ref: '${{ github.repository }}:${{ github.sha }}'
                 format: 'sarif'
                 output: trivy.sarif
                 exit-code: '0'
                 ignore-unfixed: true
 
             - name: Run Snyk to check for vulnerabilities
-              continue-on-error: true
               uses: snyk/actions/docker@master
               env:
                 SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
               with:
-                image: 'technogix/${{ github.event.repository.name }}:${{ github.sha }}'
+                image: '${{ github.repository }}:${{ github.sha }}'
                 args: --sarif-file-output=snyk.sarif --file=Dockerfile
 
             - name: Upload trivy result to GitHub Code Scanning

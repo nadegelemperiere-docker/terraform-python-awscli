@@ -13,13 +13,13 @@ This project releases a container containing the tools required to deploy and ch
 
 ### Built With
 
-[![Terraform](https://img.shields.io/static/v1?label=terraform&message=1.1.7&color=informational)](https://www.terraform.io/docs/index.html)
-[![Python](https://img.shields.io/static/v1?label=python&message=3.10.2&color=informational)](https://www.python.org/)
+[![Terraform](https://img.shields.io/static/v1?label=terraform&message=1.2.1&color=informational)](https://www.terraform.io/docs/index.html)
+[![Python](https://img.shields.io/static/v1?label=python&message=3.104&color=informational)](https://www.python.org/)
 [![AWS CLI](https://img.shields.io/static/v1?label=aws%20cli&message=2.4.23&color=informational)](https://aws.amazon.com/cli/)
 
 ### Packaged with
 
-[![Docker](https://img.shields.io/static/v1?label=Docker&message=20.10.2&color=informational)](https://www.docker.com/)
+[![Docker](https://img.shields.io/static/v1?label=Docker&message=20.10.13&color=informational)](https://www.docker.com/)
 
 ## Getting Started
 
@@ -42,7 +42,7 @@ docker image pull technogix/terraform-python-awscli
 
 ## Contributing
 
-![GitHub Contributors Image](https://contrib.rocks/image?repo=technogix/website)
+![GitHub Contributors Image](https://contrib.rocks/image?repo=technogix-images/terraform-python-awscli)
 
 ## License
 
@@ -50,4 +50,4 @@ This code is under MIT license.
 
 ## Contact
 
-Nadege LEMPERIERE - nadege.lemperiere@technogix.io
+Nadege LEMPERIERE -nadege.lemperiere@technogix.io
