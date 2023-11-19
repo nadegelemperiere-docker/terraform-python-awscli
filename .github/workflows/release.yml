@@ -25,7 +25,7 @@ jobs:
               uses: actions/checkout@master
 
             - name: Check dockerfile
-              uses: hadolint/hadolint-action@v3.1.0
+              uses: hadolint/hadolint-action@master
               with:
                 dockerfile: Dockerfile
                 failure-threshold: ignore
@@ -60,13 +60,13 @@ jobs:
                 args: --sarif-file-output=snyk.sarif --file=Dockerfile
 
             - name: Upload trivy result to GitHub Code Scanning
-              uses: github/codeql-action/upload-sarif@v2
+              uses: github/codeql-action/upload-sarif@main
               if: always()
               with:
                 sarif_file: trivy.sarif
 
             - name: Upload snyk result to GitHub Code Scanning
-              uses: github/codeql-action/upload-sarif@v2
+              uses: github/codeql-action/upload-sarif@main
               if: always()
               with:
                 sarif_file: snyk.sarif
