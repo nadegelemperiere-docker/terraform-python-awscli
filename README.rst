@@ -10,17 +10,17 @@ About The Project
 
 This project releases a container containing the tools required to deploy and check AWS infrastructure
 
-.. image:: https://badgen.net/github/checks/nadegelemperiere-docker/terraform-python-awscli
-   :target: https://github.com/nadegelemperiere-docker/terraform-python-awscli/actions/workflows/release.yml
+.. image:: https://badgen.net/github/checks/nadegelemperiere/terraform-python-awscli
+   :target: https://github.com/nadegelemperiere/terraform-python-awscli/actions/workflows/release.yml
    :alt: Status
 .. image:: https://img.shields.io/static/v1?label=license&message=MIT&color=informational
    :target: ./LICENSE
    :alt: License
-.. image:: https://badgen.net/github/commits/nadegelemperiere-docker/terraform-python-awscli/main
-   :target: https://github.com/nnadegelemperiere-docker/terraform-python-awscli
+.. image:: https://badgen.net/github/commits/nadegelemperiere/terraform-python-awscli/main
+   :target: https://github.com/nnadegelemperiere/terraform-python-awscli
    :alt: Commits
-.. image:: https://badgen.net/github/last-commit/nadegelemperiere-docker/terraform-python-awscli/main
-   :target: https://github.com/nadegelemperiere-docker/terraform-python-awscli
+.. image:: https://badgen.net/github/last-commit/nadegelemperiere/terraform-python-awscli/main
+   :target: https://github.com/nadegelemperiere/terraform-python-awscli
    :alt: Last commit
 
 Built With
@@ -57,11 +57,11 @@ You can also get it from the docker hub
 Issues
 ======
 
-.. image:: https://img.shields.io/github/issues/nadegelemperiere-docker/terraform-python-awscli.svg
-   :target: https://github.com/nadegelemperiere-docker/terraform-python-awscli/issues
+.. image:: https://img.shields.io/github/issues/nadegelemperiere/terraform-python-awscli.svg
+   :target: https://github.com/nadegelemperiere/terraform-python-awscli/issues
    :alt: Open issues
-.. image:: https://img.shields.io/github/issues-closed/nadegelemperiere-docker/terraform-python-awscli.svg
-   :target: https://github.com/nadegelemperiere-docker/terraform-python-awscli/issues
+.. image:: https://img.shields.io/github/issues-closed/nadegelemperiere/terraform-python-awscli.svg
+   :target: https://github.com/nadegelemperiere/terraform-python-awscli/issues
    :alt: Closed issues
 
 Known limitations
@@ -73,7 +73,7 @@ Roadmap
 Contributing
 ============
 
-.. image:: https://contrib.rocks/image?repo=nadegelemperiere-docker/terraform-python-awscli
+.. image:: https://contrib.rocks/image?repo=nadegelemperiere/terraform-python-awscli
    :alt: GitHub Contributors Image
 
 We welcome contributions, do not hesitate to contact us if you want to contribute.

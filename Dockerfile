@@ -10,13 +10,14 @@ RUN apk --no-cache --update add curl==8.4.0-r0 && \
     curl https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.35-r1/glibc-bin-2.35-r1.apk -o glibc-bin.apk -L && \
     curl https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.35-r1/glibc-i18n-2.35-r1.apk -o glibc-i18n.apk -L && \
     apk add --no-cache glibc.apk && apk add --no-cache glibc-bin.apk && apk add --no-cache glibc-i18n.apk && \
-    apk --no-cache del curl && rm -rf /var/cache/apk/* && rm -rf /var/lib/apt/lists/*
+    apk --no-cache del curl && rm -rf /var/cache/apk/* && rm -rf /var/lib/apt/lists/* && rm *.apk
 
 # Install terraform
 RUN apk --no-cache --update add curl==8.4.0-r0 && \
     curl https://releases.hashicorp.com/terraform/1.6.4/terraform_1.6.4_linux_amd64.zip -o terraform_1.6.4_linux_amd64.zip -L && \
     unzip terraform_1.6.4_linux_amd64.zip && \
-    mv terraform /usr/bin/terraform
+    mv terraform /usr/bin/terraform && \
+    rm terraform_1.6.4_linux_amd64.zip
 
 # Install bash
 RUN apk add --no-cache --upgrade bash==5.2.15-r5 && \
@@ -27,7 +28,8 @@ RUN apk --no-cache --update add curl==8.4.0-r0 && \
     curl "https://raw.githubusercontent.com/terraform-linters/tflint/v0.49.0/install_linux.sh" -o install_linux.sh && \
     chmod +x install_linux.sh && \
     ./install_linux.sh && \
-    apk --no-cache del curl && rm -rf /var/cache/apk/* && rm -rf /var/lib/apt/lists/*
+    apk --no-cache del curl && rm -rf /var/cache/apk/* && rm -rf /var/lib/apt/lists/* && \
+    rm ./install_linux.sh
 
 # Install AWS CLI
 RUN apk --no-cache --update add curl==8.4.0-r0  && \
