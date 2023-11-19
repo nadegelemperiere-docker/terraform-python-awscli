@@ -33,7 +33,7 @@ Built With
    :target: https://aws.amazon.com/cli/
    :alt: AWS CLI
 .. image:: https://img.shields.io/static/v1?label=python&message=3.12.0&color=informational
-   :target: https://https://www.python.org/
+   :target: https://www.python.org/
    :alt: Python
 
 Packaged with
@@ -41,7 +41,7 @@ Packaged with
 
 .. image:: https://img.shields.io/static/v1?label=Docker&message=24.0.6&color=informational
    :target: https://www.docker.com/
-   :alt: docker
+   :alt: Docker
 
 Getting Started
 ===============

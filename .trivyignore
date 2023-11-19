@@ -1,0 +1,3 @@
+# No impact on deployed infrastructure, and most likely even not on terraform itself since the vulnerability is not listed in the terraform vulnerabilities list
+GHSA-m425-mq94-257g
+CVE-2023-44487
