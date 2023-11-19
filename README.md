@@ -1,6 +1,6 @@
 ![Technogix logo](docs/imgs/logo.png)
 
-# Technogix terraform-python-awscli devops container
+# terraform-python-awscli devops container
 
 ## About The Project
 
@@ -13,36 +13,36 @@ This project releases a container containing the tools required to deploy and ch
 
 ### Built With
 
-[![Terraform](https://img.shields.io/static/v1?label=terraform&message=1.2.1&color=informational)](https://www.terraform.io/docs/index.html)
-[![Python](https://img.shields.io/static/v1?label=python&message=3.104&color=informational)](https://www.python.org/)
-[![AWS CLI](https://img.shields.io/static/v1?label=aws%20cli&message=2.4.23&color=informational)](https://aws.amazon.com/cli/)
+[![Terraform](https://img.shields.io/static/v1?label=terraform&message=1.6.4&color=informational)](https://www.terraform.io/docs/index.html)
+[![Python](https://img.shields.io/static/v1?label=python&message=3.12.0&color=informational)](https://www.python.org/)
+[![AWS CLI](https://img.shields.io/static/v1?label=aws%20cli&message=2.13.37&color=informational)](https://aws.amazon.com/cli/)
 
 ### Packaged with
 
-[![Docker](https://img.shields.io/static/v1?label=Docker&message=20.10.13&color=informational)](https://www.docker.com/)
+[![Docker](https://img.shields.io/static/v1?label=Docker&message=24.0.6&color=informational)](https://www.docker.com/)
 
 ## Getting Started
 
 ```bash
-docker image build -t technogix/terraform-python-awscli .
+docker image build -t nadegelemperiere/terraform-python-awscli .
 ```
 
 You can also get it from the docker hub
 
 ```bash
-docker image pull technogix/terraform-python-awscli
+docker image pull nadegelemperiere/terraform-python-awscli
 ```
 
 ## Issues
 
-[![Open issues](https://img.shields.io/github/issues/technogix-images/terraform-python-awscli.svg)](https://github.com/technogix-images/terraform-python-awscli/issues)
-[![Closed issues](https://img.shields.io/github/issues-closed/technogix-images/terraform-python-awscli.svg)](https://github.com/technogix-images/terraform-python-awscli/issues)
+[![Open issues](https://img.shields.io/github/issues/nadegelemperiere-docker/terraform-python-awscli.svg)](https://github.com/nadegelemperiere-docker/terraform-python-awscli/issues)
+[![Closed issues](https://img.shields.io/github/issues-closed/nadegelemperiere-docker/terraform-python-awscli.svg)](https://github.com/nadegelemperiere-docker/terraform-python-awscli/issues)
 
 ## Roadmap
 
 ## Contributing
 
-![GitHub Contributors Image](https://contrib.rocks/image?repo=technogix-images/terraform-python-awscli)
+![GitHub Contributors Image](https://contrib.rocks/image?repo=nadegelemperiere-docker/terraform-python-awscli)
 
 ## License
 
@@ -50,4 +50,4 @@ This code is under MIT license.
 
 ## Contact
 
-Nadege LEMPERIERE -nadege.lemperiere@technogix.io
+Nadege LEMPERIERE - nadege.lemperiere@gmail.com

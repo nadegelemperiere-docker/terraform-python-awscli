@@ -1,13 +1,11 @@
 # -------------------------------------------------------
-# TECHNOGIX
-# -------------------------------------------------------
-# Copyright (c) [2022] Technogix SARL
+# Copyright (c) [2022] Nadege Lemperiere
 # All rights reserved
 # -------------------------------------------------------
-# Pull request pipeline for website
+# Pull request pipeline for terraform container
 # -------------------------------------------------------
 # Nadège LEMPERIERE, @01 march 2022
-# Latest revision: 01 march 2022
+# Latest revision: 19 november 2023
 # -------------------------------------------------------
 
 name: Container Release Pipeline
@@ -27,7 +25,7 @@ jobs:
               uses: actions/checkout@master
 
             - name: Check dockerfile
-              uses: hadolint/hadolint-action@v1.6.0
+              uses: hadolint/hadolint-action@v3.1.0
               with:
                 dockerfile: Dockerfile
                 failure-threshold: ignore
@@ -41,12 +39,12 @@ jobs:
               uses: actions/checkout@master
 
             - name: Build container
-              run: docker image build -t technogix/${{ github.event.repository.name }}:${{ github.sha }} .
+              run: docker image build -t nadegelemperiere/${{ github.event.repository.name }}:${{ github.sha }} .
 
             - name: Check container
               uses: aquasecurity/trivy-action@master
               with:
-                image-ref: 'technogix/${{ github.event.repository.name }}:${{ github.sha }}'
+                image-ref: 'nadegelemperiere/${{ github.event.repository.name }}:${{ github.sha }}'
                 format: 'sarif'
                 output: trivy.sarif
                 exit-code: '0'
@@ -58,17 +56,17 @@ jobs:
               env:
                 SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
               with:
-                image: 'technogix/${{ github.event.repository.name }}:${{ github.sha }}'
+                image: 'nadegelemperiere/${{ github.event.repository.name }}:${{ github.sha }}'
                 args: --sarif-file-output=snyk.sarif --file=Dockerfile
 
             - name: Upload trivy result to GitHub Code Scanning
-              uses: github/codeql-action/upload-sarif@v1
+              uses: github/codeql-action/upload-sarif@v2
               if: always()
               with:
                 sarif_file: trivy.sarif
 
             - name: Upload snyk result to GitHub Code Scanning
-              uses: github/codeql-action/upload-sarif@v1
+              uses: github/codeql-action/upload-sarif@v2
               if: always()
               with:
                 sarif_file: snyk.sarif
@@ -77,7 +75,7 @@ jobs:
               run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USER }} --password-stdin
 
             - name: Publish container
-              run: docker image push technogix/${{ github.event.repository.name }}:${{ github.sha }}
+              run: docker image push nadegelemperiere/${{ github.event.repository.name }}:${{ github.sha }}
 
     release:
         name: Release Container
@@ -88,10 +86,10 @@ jobs:
               run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USER }} --password-stdin
 
             - name: Retrieve container
-              run: docker image pull technogix/${{ github.event.repository.name }}:${{ github.sha }}
+              run: docker image pull nadegelemperiere/${{ github.event.repository.name }}:${{ github.sha }}
 
             - name: Tag container
-              run: docker image tag technogix/${{ github.event.repository.name }}:${{ github.sha }} technogix/${{ github.event.repository.name }}:${{ github.ref_name }}
+              run: docker image tag nadegelemperiere/${{ github.event.repository.name }}:${{ github.sha }} nadegelemperiere/${{ github.event.repository.name }}:${{ github.ref_name }}
 
             - name: Release container
-              run: docker image push technogix/${{ github.event.repository.name }}:${{ github.ref_name }}
+              run: docker image push nadegelemperiere/${{ github.event.repository.name }}:${{ github.ref_name }}
