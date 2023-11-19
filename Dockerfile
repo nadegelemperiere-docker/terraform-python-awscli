@@ -45,7 +45,7 @@ RUN apk --no-cache --update add git==2.40.1-r0 git-lfs==3.3.0-r6 less==633-r0 op
 
 # Install python packages
 RUN apk --no-cache --update add libxml2-dev==2.11.6-r0 libxslt-dev==1.1.38-r0 libffi-dev==3.4.4-r2 build-base==0.5-r3 && \
-    python3 -m pip install --no-cache-dir --upgrade pip && \
+    python3 -m pip install --no-cache-dir --upgrade pip==23.3.1 && \
     pip install --no-cache-dir pykeepass==4.0.6 && \
     pip install --no-cache-dir pip-audit==2.6.1 && \
     pip install --no-cache-dir pylint==3.0.2 && \
