@@ -1,7 +1,7 @@
 version: v1.0.0
 ignore:
   SNYK-GOLANG-GOOGLEGOLANGORGGRPC-5953328:
-    - '/usr/bin/terraform':
+    - 'google.golang.org/grpc@v1.58.2':
         reason: No update available for terraform and vulnerability does not impact deployed infrastructure
         expires: 2030-11-19T00:00:00.000Z
         created: 2023-11-19T00:00:00.000Z
