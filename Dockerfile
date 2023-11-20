@@ -32,7 +32,7 @@ RUN apk --no-cache --update add curl==8.4.0-r0 && \
     rm ./install_linux.sh
 
 # Install AWS CLI
-RUN apk --no-cache --update add curl==8.4.0-r0  && \
+RUN apk --no-cache --update add curl==8.4.0-r0 && \
     curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.13.37.zip" -o "awscliv2.zip" && \
     unzip awscliv2.zip && \
     ./aws/install && \
@@ -46,12 +46,16 @@ RUN apk --no-cache --update add git==2.40.1-r0 git-lfs==3.3.0-r6 less==633-r0 op
     rm -rf /var/lib/apt/lists/* && rm -rf /var/cache/apk/*
 
 # Install python packages
-RUN apk --no-cache --update add libxml2-dev==2.11.6-r0 libxslt-dev==1.1.38-r0 libffi-dev==3.4.4-r2 build-base==0.5-r3 && \
+RUN apk --no-cache --update add curl==8.4.0-r0 libxml2-dev==2.11.6-r0 libxslt-dev==1.1.38-r0 libffi-dev==3.4.4-r2 build-base==0.5-r3 && \
+    curl -sSL https://install.python-poetry.org -o get_poetry.py && \
+    export POETRY_HOME=/usr/local && \
+    python3 get_poetry.py --version=1.7.1 && \
     python3 -m pip install --no-cache-dir --upgrade pip==23.3.1 && \
     pip install --no-cache-dir pykeepass==4.0.6 && \
     pip install --no-cache-dir pip-audit==2.6.1 && \
     pip install --no-cache-dir pylint==3.0.2 && \
-    rm -rf /var/lib/apt/lists/* && rm -rf /var/cache/apk/*
+    pip install --no-cache-dir poetry-dynamic-versioning==1.1.1 && \
+    apk --no-cache del curl && rm get_poetry.py &&  rm -rf /var/lib/apt/lists/* && rm -rf /var/cache/apk/*
 
 # Launch test scripts
 CMD ["/bin/bash"]
