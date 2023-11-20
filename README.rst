@@ -58,10 +58,10 @@ Issues
 ======
 
 .. image:: https://img.shields.io/github/issues/nadegelemperiere-docker/terraform-python-awscli.svg
-   :target: https://github.com/nadegelemperiere/terraform-python-awscli/issues
+   :target: https://github.com/nadegelemperiere-docker/terraform-python-awscli/issues
    :alt: Open issues
-.. image:: https://img.shields.io/github/issues-closed/nadegelemperiere_docker/terraform-python-awscli.svg
-   :target: https://github.com/nadegelemperiere/terraform-python-awscli/issues
+.. image:: https://img.shields.io/github/issues-closed/nadegelemperiere-docker/terraform-python-awscli.svg
+   :target: https://github.com/nadegelemperiere-docker/terraform-python-awscli/issues
    :alt: Closed issues
 
 Known limitations
