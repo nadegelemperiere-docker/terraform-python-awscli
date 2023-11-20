@@ -10,7 +10,7 @@ RUN apk --no-cache --update add curl==8.4.0-r0 && \
     curl https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.35-r1/glibc-bin-2.35-r1.apk -o glibc-bin.apk -L && \
     curl https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.35-r1/glibc-i18n-2.35-r1.apk -o glibc-i18n.apk -L && \
     apk add --no-cache glibc.apk && apk add --no-cache glibc-bin.apk && apk add --no-cache glibc-i18n.apk && \
-    apk --no-cache del curl && rm -rf /var/cache/apk/* && rm -rf /var/lib/apt/lists/* && rm *.apk
+    apk --no-cache del curl && rm -rf /var/cache/apk/* && rm -rf /var/lib/apt/lists/* && rm ./*.apk
 
 # Install terraform
 RUN apk --no-cache --update add curl==8.4.0-r0 && \
